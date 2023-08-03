@@ -5,7 +5,7 @@ template <typename T> concept ComplexConcept = requires(T value)//концепт
 {
 	{value.tostring() } -> std::same_as<std::string>;
 	{value.hash()} -> std::convertible_to<long>;
-	requires !std::has_virtual_destructor<T>::value;
+	!std::has_virtual_destructor<T>::value;
 };
 
 //провкрка концепта
